@@ -1,7 +1,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: CC-BY-NC-4.0
 import jax.numpy as np
-from jax import random, jit, nn, vmap, partial
+from jax import random, jit, nn, vmap
 import numpy as onp
 from scipy.stats import norm
 import math
