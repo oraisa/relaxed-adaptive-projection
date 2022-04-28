@@ -6,7 +6,6 @@ import numpy as onp
 from scipy.stats import norm
 import math
 import datasets
-from jax.ops import index_update
 
 data_sources = {
     "toy_binary": datasets.toy_binary.ToyBinary,
