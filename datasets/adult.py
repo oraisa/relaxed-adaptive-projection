@@ -17,6 +17,23 @@ class Adult(Dataset):
     def __init__(self, read_file, filepath, full_dataset, n, d):
         super().__init__(read_file, filepath, full_dataset, n, d)
 
+    def convert_dataset(self, data, domain):
+        self.df = pd.DataFrame(data, columns=domain.keys(), dtype=int)
+        self.domain = domain
+
+        # check domain and csv header are consistent
+        assert set(self.df.columns) == set(self.domain.keys())
+
+        # return one-hot encoding of entrire dataset
+        dataset = self.project_feats()
+
+        if not self.use_subset:
+            self.n, self.d = dataset.shape
+            return dataset
+        else:
+            return dataset[: self.n, : self.d]
+
+
     def get_dataset(self):
 
         data_location = "data/"
